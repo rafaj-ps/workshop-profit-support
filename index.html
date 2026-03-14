@@ -3,319 +3,335 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Support – Workshop Profit</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Workshop Profit support, privacy, and troubleshooting for woodworkers, carpenters, and makers.">
+  <meta name="theme-color" content="#c06d1b">
+  <title>Workshop Profit Support</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f6efe7;
+      --panel: #fffaf5;
+      --panel-2: #f1e7dc;
+      --text: #3f2c22;
+      --muted: #7e6a5d;
+      --line: #e2d4c7;
+      --brand: #c06d1b;
+      --green: #4f8d62;
+      --shadow: rgba(73, 42, 16, 0.08);
+      --max: 1120px;
+      --radius: 28px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #FDFAF5;
-      color: #1A1A1A;
-      line-height: 1.7;
+      margin: 0;
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(192, 109, 27, 0.12), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(79, 141, 98, 0.08), transparent 26%),
+        linear-gradient(180deg, #fbf6f0 0%, var(--bg) 100%);
+      line-height: 1.5;
     }
-    header {
-      background: #1A0F00;
-      padding: 48px 24px 40px;
-      text-align: center;
+
+    a {
+      color: var(--brand);
+      text-decoration: none;
     }
-    .logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 12px;
+
+    a:hover {
+      text-decoration: underline;
     }
-    .logo-icon {
-      width: 56px; height: 56px;
-      background: #C47F17;
-      border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 26px; font-weight: 900; color: white;
+
+    .wrap {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
     }
-    .logo-text { font-size: 28px; font-weight: 700; color: white; }
-    .logo-text span { color: #C47F17; }
-    header p { color: #A07040; font-size: 15px; }
 
     .hero {
-      background: linear-gradient(135deg, #2A1500 0%, #1A0F00 100%);
-      padding: 60px 24px;
-      text-align: center;
-      border-bottom: 3px solid #C47F17;
+      padding: 48px 0 24px;
     }
-    .hero h1 { font-size: 36px; color: white; font-weight: 700; margin-bottom: 12px; }
-    .hero p { font-size: 17px; color: #C49060; max-width: 500px; margin: 0 auto; }
 
-    main { max-width: 760px; margin: 0 auto; padding: 56px 24px 80px; }
-
-    .contact-box {
-      background: white;
-      border: 2px solid #F0E0C0;
-      border-radius: 16px;
+    .hero-card {
+      background: rgba(255, 250, 245, 0.92);
+      border: 1px solid rgba(192, 109, 27, 0.12);
+      border-radius: 36px;
+      box-shadow: 0 24px 80px var(--shadow);
       padding: 36px;
-      text-align: center;
-      margin-bottom: 56px;
-      box-shadow: 0 4px 24px rgba(196,127,23,0.08);
-    }
-    .contact-box h2 { font-size: 22px; color: #1A0F00; margin-bottom: 10px; }
-    .contact-box p { color: #666; margin-bottom: 24px; font-size: 15px; }
-    .contact-btn {
-      display: inline-block;
-      background: #C47F17;
-      color: white;
-      font-size: 16px;
-      font-weight: 600;
-      padding: 14px 36px;
-      border-radius: 50px;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-    .contact-btn:hover { background: #A06010; }
-
-    h2.section-title {
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: #C47F17;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-      margin-top: 48px;
-    }
-
-    .faq-list { display: flex; flex-direction: column; gap: 2px; }
-    .faq-item {
-      background: white;
-      border: 1px solid #EEE4D0;
-      border-radius: 12px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: center;
       overflow: hidden;
     }
-    .faq-q {
-      width: 100%;
-      background: none;
-      border: none;
-      text-align: left;
-      padding: 20px 24px;
-      font-size: 16px;
-      font-weight: 600;
-      color: #1A0F00;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
+
+    .eyebrow {
+      display: inline-flex;
       align-items: center;
-      font-family: inherit;
-    }
-    .faq-q:hover { background: #FEFBF5; }
-    .faq-arrow { color: #C47F17; font-size: 18px; transition: transform 0.2s; }
-    .faq-a {
-      display: none;
-      padding: 0 24px 20px;
-      font-size: 15px;
-      color: #444;
-      border-top: 1px solid #F5ECD7;
-      padding-top: 16px;
-    }
-    .faq-item.open .faq-a { display: block; }
-    .faq-item.open .faq-arrow { transform: rotate(180deg); }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    @media (max-width: 560px) { .features-grid { grid-template-columns: 1fr; } }
-    .feature-card {
-      background: white;
-      border: 1px solid #EEE4D0;
-      border-radius: 12px;
-      padding: 24px;
-    }
-    .feature-icon { font-size: 28px; margin-bottom: 10px; }
-    .feature-card h3 { font-size: 16px; color: #1A0F00; margin-bottom: 6px; }
-    .feature-card p { font-size: 14px; color: #666; }
-
-    .links-row {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-top: 48px;
-      padding-top: 32px;
-      border-top: 1px solid #EEE4D0;
-    }
-    .links-row a {
-      color: #C47F17;
-      font-size: 14px;
-      text-decoration: none;
-    }
-    .links-row a:hover { text-decoration: underline; }
-
-    footer {
-      text-align: center;
-      padding: 28px 24px;
-      background: #F5ECD7;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(192, 109, 27, 0.12);
+      color: var(--brand);
       font-size: 13px;
-      color: #999;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 16px 0 14px;
+      font-size: clamp(2.4rem, 4vw, 4.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+    }
+
+    .lead {
+      margin: 0;
+      max-width: 42rem;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .hero-side {
+      background: linear-gradient(180deg, #fff 0%, #f6ede3 100%);
+      border: 1px solid rgba(192, 109, 27, 0.12);
+      border-radius: 28px;
+      padding: 22px;
+    }
+
+    .hero-side h2 {
+      margin: 0 0 14px;
+      font-size: 1.15rem;
+    }
+
+    .hero-side ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .section {
+      padding: 14px 0 26px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(255, 250, 245, 0.95);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 16px 48px var(--shadow);
+    }
+
+    .card h2 {
+      margin: 0 0 10px;
+      font-size: 1.35rem;
+      letter-spacing: -0.02em;
+    }
+
+    .card h3 {
+      margin: 18px 0 8px;
+      font-size: 1rem;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+    }
+
+    .card ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid var(--line);
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .callout {
+      margin-top: 20px;
+      padding: 16px 18px;
+      border-radius: 22px;
+      background: rgba(79, 141, 98, 0.1);
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    .footer {
+      padding: 8px 0 48px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    @media (max-width: 860px) {
+      .hero-card,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 24px;
+      }
+
+      .hero-card,
+      .card {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
     }
   </style>
 </head>
 <body>
-
-<header>
-  <div class="logo">
-    <div class="logo-icon">W</div>
-    <div class="logo-text">Workshop <span>Profit</span></div>
-  </div>
-  <p>Project Time &amp; Profit Tracker for Craftspeople</p>
-</header>
-
-<div class="hero">
-  <h1>How can we help?</h1>
-  <p>Find answers to common questions or get in touch directly.</p>
-</div>
-
-<main>
-
-  <div class="contact-box">
-    <h2>Contact Support</h2>
-    <p>Can't find what you're looking for? Send us an email and we'll get back to you as soon as possible.</p>
-    <a href="mailto:drvena.avantura@gmail.com" class="contact-btn">✉️ &nbsp; Email Support</a>
-  </div>
-
-  <h2 class="section-title">Frequently Asked Questions</h2>
-  <div class="faq-list">
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggle(this)">
-        What is Workshop Profit?
-        <span class="faq-arrow">▾</span>
-      </button>
-      <div class="faq-a">
-        Workshop Profit is a project management app for woodworkers and craftspeople. It helps you track time spent on each project, log material and supply costs, calculate your real profit, and understand your effective hourly rate — so you can price your work correctly.
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-card">
+        <div>
+          <div class="eyebrow">Workshop Profit Support</div>
+          <h1>Track the work.<br>Protect the profit.</h1>
+          <p class="lead">
+            Workshop Profit helps woodworkers, carpenters, and makers track project costs, time,
+            selling price, profit, and effective hourly rate. This page covers support, privacy,
+            purchases, backup, and troubleshooting.
+          </p>
+          <div class="pill-row">
+            <span class="pill">No account required</span>
+            <span class="pill">One-time Pro purchase</span>
+            <span class="pill">No subscriptions</span>
+            <span class="pill">No tracking</span>
+          </div>
+        </div>
+        <aside class="hero-side">
+          <h2>Need help?</h2>
+          <ul>
+            <li>Email: <a href="mailto:ivan.rafaj@gmail.com?subject=Workshop%20Profit%20Support">ivan.rafaj@gmail.com</a></li>
+            <li>App: Workshop Profit</li>
+            <li>Platform: iPhone</li>
+            <li>Current model: free to try, Pro unlock is a one-time purchase</li>
+          </ul>
+          <div class="callout">
+            If you contact support, include your iPhone model, iOS version, and a short description
+            of what happened.
+          </div>
+        </aside>
       </div>
     </div>
+  </header>
 
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggle(this)">
-        What's included in the free version?
-        <span class="faq-arrow">▾</span>
-      </button>
-      <div class="faq-a">
-        The free version lets you create and fully use 1 project, with access to all features: time tracking, expense logging, budget progress, analytics, photos, and file attachments. It's a complete trial — no features are locked, just the number of projects is limited.
+  <main class="wrap">
+    <section class="section">
+      <div class="grid">
+        <article class="card">
+          <h2>What The App Does</h2>
+          <p>
+            Workshop Profit is an offline business tool for makers and workshop owners. It helps you:
+          </p>
+          <ul>
+            <li>Create projects for paid or private work</li>
+            <li>Track expenses and materials per project</li>
+            <li>Log time with a built-in timer</li>
+            <li>Set a selling price and see real profit instantly</li>
+            <li>Review analytics, export reports, and back up your data</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Frequently Asked Questions</h2>
+          <h3>Do I need an account?</h3>
+          <p>No. There is no registration, login, or cloud account required.</p>
+
+          <h3>How does Pro work?</h3>
+          <p>Workshop Profit Pro unlocks unlimited projects with a one-time non-consumable purchase. There is no subscription.</p>
+
+          <h3>Can I restore my purchase?</h3>
+          <p>Yes. Open the Pro screen and use <strong>Restore Purchase</strong>.</p>
+        </article>
+
+        <article class="card">
+          <h2>Privacy</h2>
+          <p>
+            Workshop Profit does not collect personal data or require a user account. Your project
+            information is stored on your device.
+          </p>
+          <h3>Permissions Used</h3>
+          <ul>
+            <li>Camera: only when you choose to take a project photo</li>
+            <li>Photo Library: only when you choose to attach a project photo from your library</li>
+            <li>Files / Share Sheet: only when you export reports or backup/restore your data</li>
+            <li>Notifications: only for optional project reminders</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Backup And Export</h2>
+          <h3>Exports</h3>
+          <p>You can export project data as PDF or CSV from inside the app.</p>
+
+          <h3>Backup</h3>
+          <p>You can create a ZIP backup and later restore it on the same device or another device.</p>
+
+          <h3>Important</h3>
+          <p>Restore replaces the app’s current local data with the backup you import.</p>
+        </article>
+
+        <article class="card">
+          <h2>Troubleshooting</h2>
+          <h3>Store unavailable on the Pro screen</h3>
+          <p>Check your internet connection and try again. If needed, reopen the app and retry the purchase screen.</p>
+
+          <h3>Photo access not working</h3>
+          <p>Check iPhone Settings and confirm Workshop Profit has permission for Camera or Photos.</p>
+
+          <h3>Export or backup failed</h3>
+          <p>Try again and make sure the iPhone share sheet opens fully before closing it.</p>
+        </article>
+
+        <article class="card">
+          <h2>Support Contact</h2>
+          <p>
+            For help, bug reports, or feedback:
+            <a href="mailto:ivan.rafaj@gmail.com?subject=Workshop%20Profit%20Support">ivan.rafaj@gmail.com</a>
+          </p>
+          <p>
+            If you report a problem, include:
+          </p>
+          <ul>
+            <li>What screen you were on</li>
+            <li>What you expected to happen</li>
+            <li>What actually happened</li>
+            <li>Your iPhone model and iOS version</li>
+          </ul>
+        </article>
       </div>
-    </div>
+    </section>
+  </main>
 
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggle(this)">
-        What does Workshop Profit Pro include?
-        <span class="faq-arrow">▾</span>
-      </button>
-      <div class="faq-a">
-        Pro removes the 1-project limit so you can track unlimited projects. It's a single one-time purchase — no subscriptions, no recurring fees. Pay once and use the app forever.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggle(this)">
-        How do I restore my Pro purchase on a new device?
-        <span class="faq-arrow">▾</span>
-      </button>
-      <div class="faq-a">
-        Open Workshop Profit on your new device, go to the Pro upgrade screen, and tap "Restore Purchase." Make sure you're signed in with the same Apple ID you used when you originally purchased. The restore is free and instant.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggle(this)">
-        Is my data backed up? Can I move it to a new phone?
-        <span class="faq-arrow">▾</span>
-      </button>
-      <div class="faq-a">
-        Yes. Go to Settings → Export Backup to save all your projects, photos and attachments to a file. On your new phone, use Settings → Restore from Backup. Your data is also included in your device's iCloud or iTunes backup automatically.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggle(this)">
-        How is the effective hourly rate calculated?
-        <span class="faq-arrow">▾</span>
-      </button>
-      <div class="faq-a">
-        Effective Hourly Rate = (Selling Price − Total Expenses) ÷ Total Hours Worked. This gives you the real money you made per hour of your time, after covering all material costs.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggle(this)">
-        Does the app work offline?
-        <span class="faq-arrow">▾</span>
-      </button>
-      <div class="faq-a">
-        Yes, completely. Workshop Profit stores all data locally on your device. No internet connection is required to use any feature of the app.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggle(this)">
-        How do I add my own project categories?
-        <span class="faq-arrow">▾</span>
-      </button>
-      <div class="faq-a">
-        Go to Settings → Categories. You'll see the default categories (Furniture, Decor, Repair, Sculpture, Other). Tap "Add new category" at the bottom to create your own. You can also delete any category you don't need.
-      </div>
-    </div>
-
-  </div>
-
-  <h2 class="section-title">App Features</h2>
-  <div class="features-grid">
-    <div class="feature-card">
-      <div class="feature-icon">⏱️</div>
-      <h3>Time Tracking</h3>
-      <p>Start/stop work sessions with one tap or log time manually.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">💰</div>
-      <h3>Expense Tracking</h3>
-      <p>Log materials, supplies and any other costs per project.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">📊</div>
-      <h3>Budget Progress</h3>
-      <p>Visual rings show time and cost budgets at a glance.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">📈</div>
-      <h3>Analytics</h3>
-      <p>Year summaries, category performance and hourly rate trends.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🌙</div>
-      <h3>Dark Mode</h3>
-      <p>Full dark and light theme support. Follows system setting.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🌍</div>
-      <h3>6 Languages</h3>
-      <p>English, Spanish, French, German, Portuguese, Croatian.</p>
-    </div>
-  </div>
-
-  <div class="links-row">
-    <a href="privacy-policy.html">Privacy Policy</a>
-    <span style="color:#CCC">•</span>
-    <a href="mailto:drvena.avantura@gmail.com">Contact</a>
-    <span style="color:#CCC">•</span>
-    <a href="https://apps.apple.com" target="_blank">App Store</a>
-  </div>
-
-</main>
-
-<footer>
-  &copy; 2026 Ivan Rafaj &nbsp;·&nbsp; Workshop Profit &nbsp;·&nbsp; All rights reserved
-</footer>
-
-<script>
-  function toggle(btn) {
-    const item = btn.closest('.faq-item');
-    item.classList.toggle('open');
-  }
-</script>
-
+  <footer class="footer wrap">
+    Workshop Profit © 2026 Ivan Rafaj
+  </footer>
 </body>
 </html>
